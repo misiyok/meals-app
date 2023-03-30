@@ -9,19 +9,19 @@ import { MEALS } from "../data/dummy-data";
 import { FavoritesContext } from "../store/context/favorites-context";
 
 function MealDetailScreen({ route, navigation }) {
-  const favoriteMealsCx = useContext(FavoritesContext);
+  const favoriteMealsCtx = useContext(FavoritesContext);
 
   const mealId = route.params.mealId;
 
   const selectedMeal = MEALS.find((meal) => meal.id === mealId);
 
-  const mealIsFavorite = favoriteMealsCx.ids.includes(mealId);
+  const mealIsFavorite = favoriteMealsCtx.ids.includes(mealId);
 
   function changeFavoriteStatusHandler() {
     if (mealIsFavorite) {
-        favoriteMealsCx.removeFavorite(mealId);
+        favoriteMealsCtx.removeFavorite(mealId);
     } else {
-        favoriteMealsCx.addFavorite(mealId);
+        favoriteMealsCtx.addFavorite(mealId);
     }
   }
 
