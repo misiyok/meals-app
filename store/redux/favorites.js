@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit/dist/createSlice";
+import { createSlice } from "@reduxjs/toolkit"; 
 
 const favoritesSlice = createSlice({
   name: "favorites",
@@ -9,7 +9,7 @@ const favoritesSlice = createSlice({
     addFavorite: (state, action) => {
         state.ids.push(action.payload.id);
     },
-    removeFavorite: (state) => {
+    removeFavorite: (state, action) => {
         state.ids.splice(state.ids.indexOf(action.payload.id), 1);
     }
   }
